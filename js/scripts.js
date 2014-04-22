@@ -56,6 +56,10 @@ $(document).ready(function() {
         toggleCasesAvail();
     });
 
+    $('#gh-btn').click(function(event) {
+        window.open('https://github.com/rcscott/heady-topper-map', '_blank');
+    });
+
 });
 
 function showAll() {

@@ -15,7 +15,7 @@ body {
 #panel {
     position: absolute;
     top: 5px;
-    left: 30%;
+    left: 20%;
     margin-left: -180px;
     z-index: 5;
     background-color: #FFF;
