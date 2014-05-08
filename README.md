@@ -1,7 +1,16 @@
-heady-topper-map
+Heady Topper Map
 ================
 
-The Alchemist's Heady Topper beer release information overlayed on Google Maps.
+Heady Topper beer release information from The Alchemist's website, overlayed on Google Maps.
 
-Project demo at https://rcscott.github.io/heady-topper-map/
+Information is pulled nightly from http://alchemistbeer.com/buy/
 
+Project demo at http://heady-topper-map.herokuapp.com/
+
+================
+
+This project runs on Heroku.
+
+`heady-topper-map.py` is a Flask application that serves the client web page. It also returns a JSON object of the locations data from http://heady-topper-map.herokuapp.com/api/locations
+
+`update_locations.py` runs nightly to update the location data from The Alchemist's website. Data is stored in a Heroku Redis instance.
