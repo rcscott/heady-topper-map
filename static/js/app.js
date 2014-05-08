@@ -12,32 +12,35 @@ $(document).ready(function() {
     };
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-    $.each(locations, function() {
-        var marker = new google.maps.Marker({
-            position: {lat: this['lat'], lng: this['lng']},
-            title: this['name']
-        });
-        marker.setMap(map);
-        markers.push([marker, this['days'], this['loc_type'], this['cases_avail']]);
+    $.getJSON('api/locations', function(data) {
+        var locations = data['locations'];
+        $.each(locations, function() {
+            var marker = new google.maps.Marker({
+                position: {lat: this['lat'], lng: this['lng']},
+                title: this['name']
+            });
+            marker.setMap(map);
+            markers.push([marker, this['days'], this['loc_type'], this['cases_avail']]);
 
-        var info = '<div style="width:250px"><p>' +
-            '<strong>' + this['name'] + '</strong><br>' +
-            this['address'].substring(0, this['address'].length - 4) + '<br>' +
-            'Days: ';
-        $.each(this['days'], function() {
-            info += capitalize(this);
-        });
-        info += '<br>Business Type: ' + capitalize(this['loc_type']) + '<br>' +
-            'Cases Available: ';
-        info += (this['cases_avail'] == true) ? 'Yes' : 'No';
-        info += '</p></div>';
+            var info = '<div style="width:250px"><p>' +
+                '<strong>' + this['name'] + '</strong><br>' +
+                this['address'].substring(0, this['address'].length - 4) + '<br>' +
+                'Days: ';
+            $.each(this['days'], function() {
+                info += capitalize(this);
+            });
+            info += '<br>Business Type: ' + capitalize(this['loc_type']) + '<br>' +
+                'Cases Available: ';
+            info += (this['cases_avail'] == true) ? 'Yes' : 'No';
+            info += '</p></div>';
 
-        var infowindow = new google.maps.InfoWindow({
-            content: info
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-        });
+            var infowindow = new google.maps.InfoWindow({
+                content: info
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+        })
     });
 
     $('#show-all').click(function(event) {

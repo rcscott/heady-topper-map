@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Heady Topper Map</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/flat-ui.css">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+<body>
+  <div id="panel">
+    <button type="button" class="btn btn-success" id="show-all">Show All</button>
+    <div class="btn-group">
+      <button type="button" class="loc-type btn btn-primary" id="eatery">Eateries</button>
+      <button type="button" class="loc-type btn btn-primary" id="store">Stores</button>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="day btn btn-info" id="monday">Monday</button>
+      <button type="button" class="day btn btn-info" id="tuesday">Tuesday</button>
+      <button type="button" class="day btn btn-info" id="wednesday">Wednesday</button>
+      <button type="button" class="day btn btn-info" id="thursday">Thursday</button>
+      <button type="button" class="day btn btn-info" id="friday">Friday</button>
+    </div>
+    <button type="button" class="btn btn-warning" id="cases">Cases Available</button>
+    <button type="button" class="btn btn-default" id="gh-btn">Source Code <img src="static/img/GitHub-Mark-16px.png" alt="GitHub" /></button>
+  </div>
+  <div id="map-canvas"/>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script src="static/js/jquery-1.11.0.min.js"></script>
+  <script src="static/js/app.js"></script>
+</body>
+</html>
